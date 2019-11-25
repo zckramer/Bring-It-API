@@ -2,8 +2,16 @@ const UserModel = require('../models/user.model')
 
 module.exports = {
 
-    add(name, image, callback) {
-            const newUser = new UserModel({name, image});
+    add(name, image, userName, password, email, eventsAttending, eventsHosting, assignedItems, callback) {
+            const newUser = new UserModel({
+                name, 
+                image, 
+                userName, 
+                password, 
+                email, 
+                eventsAttending, 
+                eventsHosting, 
+                assignedItems});
             newUser.save().then(callback);
         },
     

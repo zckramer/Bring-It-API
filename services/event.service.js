@@ -2,8 +2,8 @@ const EventModel = require('../models/event.model')
 
 module.exports = {
 
-    add(name, callback) {
-            const newEvent = new EventModel({name});
+    add(title, hostId, guestList, attendanceLimit, items, date, location, theme, isOver, callback) {
+            const newEvent = new EventModel({title, hostId, guestList, attendanceLimit, items, date, location, theme, isOver});
             newEvent.save().then(callback);
         },
     

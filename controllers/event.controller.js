@@ -1,12 +1,12 @@
-const Event = require('../models/user.model');
 const EventService = require('../services/event.service')
 module.exports = {
 
     addNewEvent (req, res) {
         
-        const { name } = req.body;
+        const { title, hostId, guestList, attendanceLimit, items, date, location, theme, isOver } = req.body;
+        
 
-        EventService.add(name, response => {
+        EventService.add(title, hostId, guestList, attendanceLimit, items, date, location, theme, isOver, response => {
             res.json({ response });
         })
         

@@ -1,13 +1,29 @@
-const User = require('../models/user.model');
 const UserService = require('../services/user.service')
 module.exports = {
 
     addNewUser (req, res) {
         
-        const { name, image } = req.body;
+        const {
+            name, 
+            image, 
+            userName, 
+            password, 
+            email, 
+            eventsAttending, 
+            eventsHosting, 
+            assignedItems } = req.body;
 
-        UserService.add(name, image, response => {
-            res.json({ response});
+        UserService.add(
+            name, 
+            image, 
+            userName, 
+            password, 
+            email, 
+            eventsAttending, 
+            eventsHosting, 
+            assignedItems,
+             response => {
+            res.json({ response });
         })
         
     },
