@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 mongoose.connect(
-// It's the same god damned db...
+// It's the same db...
   "mongodb+srv://admin:passwordpassword@cluster007-rekop.mongodb.net/bring-it-db?retryWrites=true&w=majority",  
   { useNewUrlParser: true, useUnifiedTopology: true });
 

@@ -9,6 +9,7 @@ var logger = require('morgan');
 // ==================ROUTERS================
 var userRouter = require('./routes/user.router');
 var eventRouter = require('./routes/event.router');
+var itemRouter = require('./routes/item.router');
 
 var app = express();
 
@@ -21,6 +22,6 @@ app.use(cors())
 
 app.use('/users', userRouter);
 app.use('/events', eventRouter);
-
+app.use('/items', itemRouter);
 
 module.exports = app;
