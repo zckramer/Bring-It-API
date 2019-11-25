@@ -8,10 +8,7 @@ const Item = new mongoose.Schema({
         required: true
     },
 
-    assignedTo: {
-        type: String,
-        required: true
-    },
+    assignedTo: {type: mongoose.Schema.Types.ObjectId, ref: 'users'},
 
     category: {
         type: String,

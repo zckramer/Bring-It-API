@@ -13,6 +13,7 @@ const Event = new mongoose.Schema({
         required: true
     },
 
+    // this should be an aray of guestlist Ids
     guestList: {
         type: Array,
         required: true
@@ -23,13 +24,11 @@ const Event = new mongoose.Schema({
         required: true
     },
 
-    items: {
-       type:  String,
-       required: false
-       // [ {type: mongoose.Schema.Types.ObjectId, ref: 'items' } ],
-    },
+    // Trying to populate with an array of unique item Ids here...
+    items:  [mongoose.Schema.Types.ObjectId] ,
+
     date: {
-        type: String,
+        type: Date,
         required: false
     },
 
