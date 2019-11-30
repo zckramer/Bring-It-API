@@ -1,4 +1,5 @@
 const UserModel = require('../models/user.model')
+const EventsModel = require('../models/event.model')
 
 module.exports = {
 
@@ -11,13 +12,18 @@ module.exports = {
                 email, 
                 eventsAttending, 
                 eventsHosting, 
-                assignedItems});
+                assignedItems
+            });
             newUser.save().then(callback);
-        },
+    },
     
-
     findAll(callback) {
         UserModel.find().then(callback);
+    },
+
+    findEventsUserAttending(id, callback) {
+        
+
     }
 
 

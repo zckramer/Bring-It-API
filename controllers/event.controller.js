@@ -11,12 +11,16 @@ module.exports = {
         })
         
     },
+
     getAllEvents (req, res) {
         EventService.findAll(events => {
             res.json({ events });
         })
     }
 
+        
 
-
+    
 }
+
+
