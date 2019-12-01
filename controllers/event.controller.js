@@ -4,7 +4,7 @@ module.exports = {
     addNewEvent (req, res) {
         
         const { title, hostId, guestList, attendanceLimit, items, date, location, theme, isOver } = req.body;
-        
+        console.log("Add New Event was called")        
 
         EventService.add(title, hostId, guestList, attendanceLimit, items, date, location, theme, isOver, response => {
             res.json({ response });
