@@ -17,10 +17,6 @@ describe("renderAll", () => {
     UserController.getAllUsers(requestMock, responseMock);
 
     // Assert
-    expect(UserController.getAllUsers()).toHaveBeenCalled(1);
-//     expect(responseMock.render).toHaveBeenCalledWith("users/all", {
-//       events: [],
-//       users: []
-//     });
+    expect(UserService.findAll).toHaveBeenCalledTimes(1);
   });
 });
