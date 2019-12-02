@@ -2,8 +2,8 @@ const ItemModel = require('../models/item.model')
 
 module.exports = {
 
-    add(itemName, assignedTo, category, callback) {
-            const newItem = new ItemModel({itemName, assignedTo, category});
+    add(itemName, assignedTo, amountDesired, amountCommitted, category, callback) {
+            const newItem = new ItemModel({itemName, assignedTo, amountDesired, amountCommitted, category});
             newItem.save().then(callback);
         },
 

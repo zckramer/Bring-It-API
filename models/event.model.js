@@ -31,24 +31,25 @@ const Event = new mongoose.Schema({
         ref: "item"
     }],
 
+    description: String,
+
     date: {
-        type: Date,
-        required: false
+        type: String,
+        
     },
 
     location: {
         type: String,
-        required: true
+        
     },
 
     theme: {
         type: String,
-        required: false
     },
 
     isOver: {
         type: Boolean,
-        required: true
+        
     }
 
 });

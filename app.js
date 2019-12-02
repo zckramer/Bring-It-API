@@ -1,17 +1,17 @@
 require('./utils/db');
 
 const cors = require("cors");
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
 // ==================ROUTERS================
-var userRouter = require('./routes/user.router');
-var eventRouter = require('./routes/event.router');
-var itemRouter = require('./routes/item.router');
+const userRouter = require('./routes/user.router');
+const eventRouter = require('./routes/event.router');
+const itemRouter = require('./routes/item.router');
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
