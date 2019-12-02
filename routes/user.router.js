@@ -9,4 +9,5 @@ router.get('/:id', userController.getUserById);
 
 router.post('/', userController.addNewUser);
 
+
 module.exports = router;
