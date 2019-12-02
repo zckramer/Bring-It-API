@@ -11,7 +11,7 @@ describe("event.model", () => {
       // Will call the stubbed `Event.findAll()` method
       Event.findAll()
 
-      expect(Event.findAll).toHaveBeenCalledTimes(2)
+      expect(Event.findAll).toHaveBeenCalledTimes(1)
     })
   })
 })
