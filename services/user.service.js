@@ -21,6 +21,10 @@ module.exports = {
         UserModel.find().then(callback);
     },
 
+    findById(userId, callback) {
+        UserModel.findById(userId).then(callback)
+    },
+
     findEventsUserAttending(id, callback) {
         
 

@@ -29,6 +29,15 @@ module.exports = {
         })
         
     },
+
+    getUserById(req, res) {
+        const id  = req.params.id;
+        console.log(id)
+        UserService.findById(id, user => {
+            res.json({ user })
+        })
+    },
+
     getAllUsers (req, res) {
         UserService.findAll(users => {
             res.json({ users });
