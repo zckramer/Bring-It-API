@@ -3,10 +3,10 @@ module.exports = {
 
     addNewItem (req, res) {
         
-        const { itemName, assignedTo, category } = req.body;
+        const { itemName, assignedTo, amountDesired, amountCommitted, category } = req.body;
         
 
-        ItemService.add( itemName, assignedTo, category , response => {
+        ItemService.add( itemName, assignedTo, amountDesired, amountCommitted, category, response => {
             res.json({ response });
         })
         

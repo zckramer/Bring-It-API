@@ -27,24 +27,26 @@ const Event = new mongoose.Schema({
     // Trying to populate with an array of unique item Ids here...
     items:  [mongoose.Schema.Types.ObjectId] ,
 
+    description: String,
+
     date: {
-        type: Date,
-        required: false
+        type: String,
+        
     },
 
     location: {
         type: String,
-        required: true
+        
     },
 
     theme: {
         type: String,
-        required: true
+        
     },
 
     isOver: {
         type: Boolean,
-        required: true
+        
     }
 
 });
