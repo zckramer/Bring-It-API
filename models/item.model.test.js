@@ -36,8 +36,8 @@ describe('Item Model Test', () => {
     });
 
     // Test Validation is working!!!
-    // It should us told us the errors in on gender field.
-    it('create item without required field should failed', async () => {
+    // It should us told us the errors in on required field.
+    it('create item without required field should fail', async () => {
         const itemWithoutRequiredField = new ItemModel({ itemName: 'Ringo' });
         let err;
         try {
