@@ -47,6 +47,7 @@ module.exports = {
     //     //     res.json({ users });
     //     // })
     // },
+    
     // getAllEventsUserHosting (req, res) {
     //     // UserService.findAll(users => {
     //     //     res.json({ users });
