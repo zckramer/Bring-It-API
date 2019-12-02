@@ -9,7 +9,7 @@ describe("item.model", () => {
       Item.findAll = jest.fn(() => [])
 
       // Will call the stubbed `Item.findAll()` method
-      itemService.findAll()
+      Item.findAll()
 
       expect(Item.findAll).toHaveBeenCalledTimes(1)
     })

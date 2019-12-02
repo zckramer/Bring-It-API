@@ -9,9 +9,9 @@ describe("event.model", () => {
       Event.findAll = jest.fn(() => [])
 
       // Will call the stubbed `Event.findAll()` method
-      eventService.findAll()
+      Event.findAll()
 
-      expect(Event.findAll).toHaveBeenCalledTimes(1)
+      expect(Event.findAll).toHaveBeenCalledTimes(2)
     })
   })
 })
