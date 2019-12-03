@@ -23,7 +23,21 @@ module.exports = {
         EventService.findById(id, event => {
             res.json({ event })
         })
-    }
+    },
+
+    getEventItems (req, res) {
+        const id = req.params.id;
+        EventService.findEventItems(id, event => {
+            res.json({ event })
+        })
+    },
+
+    getEventGuestList (req, res) {
+        const id = req.params.id;
+        EventService.findEventGuestList(id, event => {
+            res.json({ event })
+        })
+    },
 
         
 

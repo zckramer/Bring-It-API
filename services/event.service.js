@@ -1,4 +1,7 @@
 const EventModel = require('../models/event.model')
+const ItemsModel = require('../models/item.model')
+const UserModel = require ('../models/user.model')
+
 const UserService = require('./user.service')
 
 module.exports = {
@@ -16,7 +19,6 @@ module.exports = {
             // .then(callback);
     },
     
-
     findAll(callback) {
         EventModel.find().then(callback);
     },
@@ -25,5 +27,12 @@ module.exports = {
         EventModel.findById(eventId).then(callback);
     },
 
-
+    findEventGuestList(eventId, callback) {
+        EventModel.findById(eventId).populate({ path: 'guestList', model: UserModel }).then(callback);
+    },
+    
+    findEventItems(eventId, callback) {
+        EventModel.findById(eventId).populate({ path: 'items', model: ItemsModel }).then(callback);
+    },
+    
 }
