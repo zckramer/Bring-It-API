@@ -1,6 +1,6 @@
 const ItemModel = require('../models/item.model')
 const UserModel = require('../models/user.model')
-
+const UserController = require('../controllers/user.controller')
 module.exports = {
 
     add(itemName, assignedTo, amountDesired, amountCommitted, category, callback) {
@@ -9,23 +9,33 @@ module.exports = {
     },
 
     addItemAssignedTo(itemId, userId, callback) {
-            const User = UserModel.findById(userId)
+        console.log(userId)
+
+            // Doesn't
+            const User = UserController.getUserById(userId, user => {
+                user.assignedItems.push({ itemId })
+            })
+            console.log(User)
+            // User.assignedItems.push({ itemId })
+
+            // UserModel.findById(userId).then(user => {
+            //     user.assignedItems.push( {itemId })
+            // })
+
+
+
+            // console.log("User.props " + User.props)
+            // console.log("User._id " + User._id)
+            // console.log("User.assignedItems " + User.assignedItems)
+
+            // Works
             const Item = ItemModel.findById(itemId)
-            
             Item.updateOne({ assignedTo: userId })
+            
+            // assignedItems
 
             .then(callback)
-        
-            
-
-            // console.log(Item)
-            // console.log(User)
-            // User.assignedItems.push(Item._id)
-
-
-            // ItemModel.findByIdAndUpdate(itemId, {assignedTo: userId})
-            // ItemModel.findById(itemId).push
-            
+             
     },
 
     findAll(callback) {
