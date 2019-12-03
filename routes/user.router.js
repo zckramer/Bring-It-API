@@ -7,7 +7,10 @@ router.get('/', userController.getAllUsers);
 
 router.get('/:id', userController.getUserById);
 
-router.post('/', userController.addNewUser);
+router.get('/:id/hosting', userController.getUserHostedEvents);
 
+
+// POST new user
+router.post('/', userController.addNewUser);
 
 module.exports = router;

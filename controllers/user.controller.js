@@ -32,9 +32,15 @@ module.exports = {
 
     getUserById(req, res) {
         const id  = req.params.id;
-        console.log(id)
         UserService.findById(id, user => {
             res.json({ user })
+        })
+    },
+
+    getUserHostedEvents(req, res) {
+        const id = req.params.id;
+        UserService.findUserHostedEvents(id, userPopulated => {
+            res.json({ userPopulated })
         })
     },
 
@@ -42,25 +48,7 @@ module.exports = {
         UserService.findAll(users => {
             res.json({ users });
         })
-   }//,
+   },
 
-    // getAllEventsInvited(req, res) {
-    //     const userId = req.body.id;
-
-    //     EventService.findAllEventsInvited(userId);
-        
-    // },
-
-    // getAllEventsUserAttending (req, res) {
-    //     // UserService.findAll(users => {
-    //     //     res.json({ users });
-    //     // })
-    // },
-    
-    // getAllEventsUserHosting (req, res) {
-    //     // UserService.findAll(users => {
-    //     //     res.json({ users });
-    //     // })
-    // }
 
 }

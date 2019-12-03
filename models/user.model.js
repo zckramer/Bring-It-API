@@ -12,11 +12,11 @@ const User = new mongoose.Schema({
     password: String,
     email: String,
     eventsAttending: 
-        [ {type: mongoose.Schema.Types.ObjectId, ref: 'Events' } ],
+        [ {type: mongoose.Schema.Types.ObjectId, ref: 'events' } ],
     eventsHosting:
-        [ {type: mongoose.Schema.Types.ObjectId, ref: 'Events' } ],
+        [ {type: mongoose.Schema.Types.ObjectId, ref: 'events' } ],
     assignedItems:
-        [ {type: mongoose.Schema.Types.ObjectId, ref: 'Items' } ],
+        [ {type: mongoose.Schema.Types.ObjectId, ref: 'items' } ],
     
 });
     module.exports = mongoose.model('user', User);
