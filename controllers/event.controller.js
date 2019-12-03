@@ -16,6 +16,13 @@ module.exports = {
         EventService.findAll(events => {
             res.json({ events });
         })
+    },
+
+    getEventById (req, res) {
+        const id = req.params.id;
+        EventService.findById(id, event => {
+            res.json({ event })
+        })
     }
 
         

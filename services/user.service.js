@@ -30,7 +30,11 @@ module.exports = {
         UserModel.findById(userId).populate({ path: 'assignedItems', model: ItemsModel }).then(callback)
     },
 
-    findUserHostedEvents(userId, callback) {
+    findUserEventsAttending(userId, callback) {
+        UserModel.findById(userId).populate({ path: 'eventsAttending', model: EventsModel }).then(callback)
+    },
+
+    findUserEventsHosting(userId, callback) {
         UserModel.findById(userId).populate({ path: 'eventsHosting', model: EventsModel }).then(callback)
     },
 

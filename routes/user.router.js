@@ -7,7 +7,9 @@ router.get('/', userController.getAllUsers);
 
 router.get('/:id', userController.getUserById);
 
-router.get('/:id/hosting', userController.getUserHostedEvents);
+router.get('/:id/attending', userController.getUserEventsAttending)
+
+router.get('/:id/hosting', userController.getUserEventsAttending);
 
 router.get('/:id/assigned-items', userController.getUserAssignedItems);
 

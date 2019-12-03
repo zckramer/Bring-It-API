@@ -21,9 +21,9 @@ module.exports = {
         EventModel.find().then(callback);
     },
 
-    // findAllEventsInvited(id, callback) {
-    //     EventModel.
-    // }
+    findById(eventId, callback) {
+        EventModel.findById(eventId).then(callback);
+    },
 
 
 }

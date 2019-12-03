@@ -37,17 +37,26 @@ module.exports = {
         })
     },
 
-    getUserHostedEvents(req, res) {
-        const id = req.params.id;
-        UserService.findUserHostedEvents(id, userPopulated => {
-            res.json({ userPopulated })
-        })
-    },
 
+    // POPULATED REQUESTS
     getUserAssignedItems(req, res) {
         const id = req.params.id;
-        UserService.findUserItems(id, userPopulated => {
-            res.json({ userPopulated })
+        UserService.findUserItems(id, user => {
+            res.json({ user })
+        })
+    },
+    
+    getUserEventsAttending(req, res) {
+        const id = req.params.id;
+        UserService.findUserEventsAttending(id, user => {
+            res.json({ user })
+        })
+    },
+    
+    getUserEventsHosting(req, res) {
+        const id = req.params.id;
+        UserService.findUserEventsHosting(id, user => {
+            res.json({ user })
         })
     },
 
