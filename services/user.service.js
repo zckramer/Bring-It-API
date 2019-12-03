@@ -1,5 +1,6 @@
 const UserModel = require('../models/user.model')
 const EventsModel = require('../models/event.model')
+const ItemsModel = require('../models/item.model')
 
 module.exports = {
 
@@ -23,6 +24,10 @@ module.exports = {
 
     findById(userId, callback) {
         UserModel.findById(userId).then(callback)
+    },
+
+    findUserItems(userId, callback) {
+        UserModel.findById(userId).populate({ path: 'assignedItems', model: ItemsModel }).then(callback)
     },
 
     findUserHostedEvents(userId, callback) {

@@ -44,6 +44,13 @@ module.exports = {
         })
     },
 
+    getUserAssignedItems(req, res) {
+        const id = req.params.id;
+        UserService.findUserItems(id, userPopulated => {
+            res.json({ userPopulated })
+        })
+    },
+
     getAllUsers (req, res) {
         UserService.findAll(users => {
             res.json({ users });

@@ -9,6 +9,8 @@ router.get('/:id', userController.getUserById);
 
 router.get('/:id/hosting', userController.getUserHostedEvents);
 
+router.get('/:id/assigned-items', userController.getUserAssignedItems);
+
 
 // POST new user
 router.post('/', userController.addNewUser);
