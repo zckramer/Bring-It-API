@@ -10,13 +10,20 @@ module.exports = {
         const newEvent = new EventModel({title, hostId, guestList, attendanceLimit, items, description, date, location, theme, isOver});
         
             newEvent.save()
+            .then(
             UserService.findById(hostId, host => {
                 host.eventsHosting.push(newEvent._id)
-                host.save((host) => {
-                    console.log(host)
+                host.save()
                     })
+            ).then(
+            guestList.forEach(guestAttending=> {
+                console.log(guestAttending)
+                UserService.findById(guestAttending, guest => {
+                    guest.eventsAttending.push(newEvent._id)
+                    guest.save()
                 })
-            // .then(callback);
+            }))
+            .then(callback)        
     },
     
     findAll(callback) {
@@ -28,7 +35,9 @@ module.exports = {
     },
 
     findEventGuestList(eventId, callback) {
-        EventModel.findById(eventId).populate({ path: 'guestList', model: UserModel }).then(callback);
+        EventModel.findById(eventId).populate(
+        { path: 'guestList', model: UserModel })
+        .then(callback);
     },
     
     findEventItems(eventId, callback) {
