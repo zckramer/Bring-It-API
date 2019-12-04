@@ -7,7 +7,9 @@ router.get('/', itemController.getAllItems);
 
 router.get('/:id', itemController.getItemById);
 
-router.patch('/:id', itemController.addItemToUser);
+router.patch('/:id/assigned', itemController.patchAssignedTo);
+
+router.patch('/:id/name', itemController.patchItemName);
 
 router.post('/', itemController.addNewItem);
 

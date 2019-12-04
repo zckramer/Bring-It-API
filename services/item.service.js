@@ -8,27 +8,23 @@ module.exports = {
             newItem.save().then(callback);
     },
 
-    editItemAssignedTo(itemId, userId, callback) {
-        console.log(userId)
-        
-        
-            const Item = ItemModel.findById(itemId)
+    editItemAssignedTo(itemId, userId, callback) {     
+            const Item = ItemModel.findById(itemId);
             Item.updateOne({ assignedTo: userId })
-            // .then(
-            //     UserModel.findById(userId)
-            //     .then( user => {
+            .then(callback)   
+// === Might be unecessary == Pushes to User array ==
+// .then( UserModel.findById(userId).then( user => {
+//         const _id = mongoose.Types.ObjectId(itemId)
+//         if (!user.assignedItems.includes(_id)) {
+//             user.assignedItems.push( _id )
+//             user.save()
+//             console.log(user.assignedItems)}}))             
+    },
 
-            //         const _id = mongoose.Types.ObjectId(itemId)
-            //         if (!user.assignedItems.includes(_id)) {
-            //             user.assignedItems.push( _id )
-            //             user.save()
-            //             console.log(user.assignedItems)
-            //             }
-            // })   
-            // )
-            .then(callback)
-            
-            
+    editItemName(itemId, newName, callback) {
+        const Item = ItemModel.findById(itemId);
+        Item.updateOne({ itemName: newName })
+        .then(callback)
     },
 
     findAll(callback) {

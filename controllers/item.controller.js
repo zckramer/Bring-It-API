@@ -12,12 +12,20 @@ module.exports = {
         
     },
 
-    addItemToUser(req, res) {
+    patchAssignedTo(req, res) {
         const id = req.params.id;
         const {userId} = req.body
-        ItemService.addItemAssignedTo(id, userId, response => {
+        ItemService.editItemAssignedTo(id, userId, response => {
             res.json({ response })
             console.log(response)
+        })
+    },
+
+    patchItemName(req, res) {
+        const id = req.params.id;
+        const {itemName} = req.body
+        ItemService.editItemName(id, itemName, response => {
+            res.json({response})
         })
     },
 
