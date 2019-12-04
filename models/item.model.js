@@ -8,11 +8,15 @@ const Item = new mongoose.Schema({
         required: true
     },
 
-    assignedTo: {type: mongoose.Schema.Types.ObjectId, ref: 'users'},
+    assignedTo: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'users',
+    },
+    
+    amountDesired: Number,
+    amountCommitted: Number,
 
-    category: {
-        type: String,
-        required: true
+    category: { String,
     }
     
     

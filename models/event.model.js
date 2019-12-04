@@ -9,15 +9,16 @@ const Event = new mongoose.Schema({
     },
     
     hostId: {
-        type: String,
+        type: String, 
+        ref: "users",
         required: true
     },
 
     // this should be an aray of guestlist Ids
-    guestList: {
-        type: Array,
-        required: true
-    },
+    guestList: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: "users"
+    }],
     
     attendanceLimit: {
         type: Number,
@@ -25,26 +26,30 @@ const Event = new mongoose.Schema({
     },
 
     // Trying to populate with an array of unique item Ids here...
-    items:  [mongoose.Schema.Types.ObjectId] ,
+    items:  [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "item"
+    }],
+
+    description: String,
 
     date: {
-        type: Date,
-        required: false
+        type: String,
+        
     },
 
     location: {
         type: String,
-        required: true
+        
     },
 
     theme: {
         type: String,
-        required: true
     },
 
     isOver: {
         type: Boolean,
-        required: true
+        
     }
 
 });
