@@ -9,8 +9,10 @@ module.exports = {
     },
 
     editItemAssignedTo(itemId, userId, callback) {     
-            const Item = ItemModel.findById(itemId);
-            Item.updateOne({ assignedTo: userId })
+            // const Item = ItemModel.findById(itemId);
+            // console.log(userId)
+            const _id = mongoose.Types.ObjectId(userId)
+            ItemModel.findByIdAndUpdate(itemId, { assignedTo: _id})
             .then(callback)   
 // === Might be unecessary == Pushes to User array ==
 // .then( UserModel.findById(userId).then( user => {
