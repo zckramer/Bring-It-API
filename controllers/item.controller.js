@@ -14,8 +14,11 @@ module.exports = {
 
     patchAssignedTo(req, res) {
         const id = req.params.id;
-        const {userId} = req.body
-        ItemService.editItemAssignedTo(id, userId, response => {
+        console.log("req.params.id = " + id)
+        const {toBeAssignedTo} = req.body
+        console.log("req.body = " + toBeAssignedTo)
+
+        ItemService.editItemAssignedTo(id, toBeAssignedTo, response => {
             res.json({ response })
             console.log(response)
         })

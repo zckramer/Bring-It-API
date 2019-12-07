@@ -7,10 +7,10 @@ module.exports = {
             const newItem = new ItemModel({itemName, assignedTo, amountDesired, amountCommitted, category});
             newItem.save().then(callback);
     },
-
+ 
     editItemAssignedTo(itemId, userId, callback) {     
-            const Item = ItemModel.findById(itemId);
-            Item.updateOne({ assignedTo: userId })
+            const Item = ItemModel.findById(itemId); // need the entire model?
+            Item.findOneAndUpdate(itemId, { assignedTo: userId }, {new: true})
             .then(callback)   
 // === Might be unecessary == Pushes to User array ==
 // .then( UserModel.findById(userId).then( user => {
