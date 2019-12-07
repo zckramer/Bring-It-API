@@ -41,7 +41,14 @@ module.exports = {
     },
     
     findEventItems(eventId, callback) {
-        EventModel.findById(eventId).populate({ path: 'items', model: ItemsModel }).then(callback);
+        EventModel.findById(eventId).populate(
+    { path: 'items', model: ItemsModel,
+      populate: {
+           path:  'assignedTo',
+            model: UserModel
+        }
+    })
+    .then(callback);
     },
     
 }
